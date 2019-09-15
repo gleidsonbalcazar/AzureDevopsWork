@@ -1,0 +1,29 @@
+<div class="container">
+  
+  <h1>Items do Azure</h1>
+  <hr class="mb-4">
+
+  <p *ngIf="!items"><em>Loading...</em>
+  </p>
+
+  <table class='table table-striped' *ngIf="items">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th> Título </th>
+      <th>Tipo <input type="text" [(ngModel)]="itemFilter.workItemType" placeholder="Filtrar Tipo"></th>
+      <th (click)="ordenar('createdDate')" class="column-date">
+        Data de criação <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items | filterBy: itemFilter | orderBy: order : reverse : 'case-insensitive'">
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.workItemType }}</td>
+      <td>{{ item.createdDate | date:"dd/MM/yyyy HH:mm:ss" }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
