@@ -1,6 +1,6 @@
 # AzureDevopsWork
 
-Este projeto é um simples console com um webapi para recuperar 'work items' do azure devops.
+Este projeto é um simples console, com um aplicação angular para recuperar 'work items' do azure devops.
 
 ## Instalação
 
